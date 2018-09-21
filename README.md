@@ -6,7 +6,7 @@ Adds `label:` option to Rails form helpers.
 
 Works like you'd expect, or at least, works like I'd expect! Examples:
 
-```slim
+```ruby
 form_with :user do |form|
 
   # Prepends label to field and infers label text
@@ -26,6 +26,9 @@ form_with :user do |form|
 
 end
 ```
+
+## Todo
+Figure out how to support options for the label tag, like `class:` and, uh, idk, other stuff. Maybe just pass options hash directly to `label:`? Maybe just start with additional `label_class:` option? Is there any other potential option for e.g. `form.label` we would care about? Probably should just cross this bridge when we get to it.
 
 ## Contributing
 
