@@ -45,6 +45,15 @@ module LabelledForm
       end
     end
 
+    def file_field method, options = {}
+      if label_text = options[:label]
+        label_text = method.to_s.humanize if label_text === true
+        label(method, label_text) + " ".html_safe + super
+      else
+        super
+      end
+    end
+
     def radio_button(method, tag_value, options = {})
       label_text = options.delete(:label)
       super.tap do |out|
