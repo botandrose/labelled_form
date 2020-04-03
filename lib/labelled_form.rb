@@ -55,7 +55,7 @@ module LabelledForm
     end
 
     def radio_button(method, tag_value, options = {})
-      label_text = options.delete(:label)
+      label_text = options[:label]
       super.tap do |out|
         if label_text
           label_text = tag_value if label_text === true
@@ -68,7 +68,7 @@ module LabelledForm
     end
 
     def check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
-      label_text = options.delete(:label)
+      label_text = options[:label]
       super.tap do |out|
         if label_text
           label_text = checked_value if label_text === true
