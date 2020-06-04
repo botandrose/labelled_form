@@ -6,8 +6,7 @@
 /pkg/
 /spec/reports/
 /tmp/
-/.ruby_version
-/.ruby_gemset
+/.ruby-version
 /Gemfile.lock
 
 # rspec failure tracking
