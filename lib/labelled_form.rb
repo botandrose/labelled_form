@@ -59,10 +59,8 @@ module LabelledForm
       super.tap do |out|
         if label_text
           label_text = tag_value if label_text === true
-          label_field = :"#{method}_#{label_text.to_s.gsub(/\s/, "_").gsub(/[^-\w]/, "").downcase}"
-
           out << " ".html_safe
-          out << label(label_field, label_text)
+          out << label(method, label_text, value: tag_value)
         end
       end
     end
