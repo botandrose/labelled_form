@@ -10,7 +10,7 @@ module LabelledForm
 
   class Builder < ActionView::Helpers::FormBuilder
     def text_area method, options = {}
-      if label_text = options[:label]
+      if label_text = options.delete(:label)
         label_text = method.to_s.humanize if label_text === true
         label(method, label_text) + " ".html_safe + super
       else
@@ -19,7 +19,7 @@ module LabelledForm
     end
 
     def date_field method, options = {}
-      if label_text = options[:label]
+      if label_text = options.delete(:label)
         label_text = method.to_s.humanize if label_text === true
         label(method, label_text) + " ".html_safe + super
       else
@@ -28,7 +28,7 @@ module LabelledForm
     end
 
     def email_field method, options = {}
-      if label_text = options[:label]
+      if label_text = options.delete(:label)
         label_text = method.to_s.humanize if label_text === true
         label(method, label_text) + " ".html_safe + super
       else
@@ -37,7 +37,7 @@ module LabelledForm
     end
 
     def text_field method, options = {}
-      if label_text = options[:label]
+      if label_text = options.delete(:label)
         label_text = method.to_s.humanize if label_text === true
         label(method, label_text) + " ".html_safe + super
       else
@@ -46,7 +46,7 @@ module LabelledForm
     end
 
     def file_field method, options = {}
-      if label_text = options[:label]
+      if label_text = options.delete(:label)
         label_text = method.to_s.humanize if label_text === true
         label(method, label_text) + " ".html_safe + super
       else
@@ -55,7 +55,7 @@ module LabelledForm
     end
 
     def radio_button(method, tag_value, options = {})
-      label_text = options[:label]
+      label_text = options.delete(:label)
       super.tap do |out|
         if label_text
           label_text = tag_value if label_text === true
@@ -68,7 +68,7 @@ module LabelledForm
     end
 
     def check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
-      label_text = options[:label]
+      label_text = options.delete(:label)
       super.tap do |out|
         if label_text
           label_text = checked_value if label_text === true
