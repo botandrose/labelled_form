@@ -69,7 +69,7 @@ module LabelledForm
       label_text = options.delete(:label)
       super.tap do |out|
         if label_text
-          label_text = checked_value if label_text === true
+          label_text = checked_value == "1" ? nil : checked_value if label_text === true
           out << " ".html_safe
           label_options = options[:multiple] ? { value: checked_value } : {}
           out << label(method, label_text, label_options)
