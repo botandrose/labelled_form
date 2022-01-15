@@ -10,6 +10,7 @@ module LabelledForm
 
   class Builder < ActionView::Helpers::FormBuilder
     def text_area method, options = {}
+      options = options.dup
       if label_text = options.delete(:label)
         label_text = method.to_s.humanize if label_text === true
         label(method, label_text) + " ".html_safe + super
@@ -19,6 +20,7 @@ module LabelledForm
     end
 
     def date_field method, options = {}
+      options = options.dup
       if label_text = options.delete(:label)
         label_text = method.to_s.humanize if label_text === true
         label(method, label_text) + " ".html_safe + super
@@ -28,6 +30,7 @@ module LabelledForm
     end
 
     def email_field method, options = {}
+      options = options.dup
       if label_text = options.delete(:label)
         label_text = method.to_s.humanize if label_text === true
         label(method, label_text) + " ".html_safe + super
@@ -37,6 +40,7 @@ module LabelledForm
     end
 
     def text_field method, options = {}
+      options = options.dup
       if label_text = options.delete(:label)
         label_text = method.to_s.humanize if label_text === true
         label(method, label_text) + " ".html_safe + super
@@ -46,6 +50,7 @@ module LabelledForm
     end
 
     def file_field method, options = {}
+      options = options.dup
       if label_text = options.delete(:label)
         label_text = method.to_s.humanize if label_text === true
         label(method, label_text) + " ".html_safe + super
@@ -55,6 +60,7 @@ module LabelledForm
     end
 
     def radio_button(method, tag_value, options = {})
+      options = options.dup
       label_text = options.delete(:label)
       super.tap do |out|
         if label_text
@@ -66,6 +72,7 @@ module LabelledForm
     end
 
     def check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
+      options = options.dup
       label_text = options.delete(:label)
       super.tap do |out|
         if label_text
