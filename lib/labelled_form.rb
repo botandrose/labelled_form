@@ -59,6 +59,12 @@ module LabelledForm
       end
     end
 
+    def url_field method, options = {}
+      with_label(method, options) do
+        super
+      end
+    end
+
     def text_field method, options = {}
       with_label(method, options) do
         super
