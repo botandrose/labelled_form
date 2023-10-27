@@ -142,6 +142,8 @@ module LabelledForm
         out << " ".html_safe
         out << label(method, label_text, value: value, class: label_class)
       end
+
+      out
     end
 
     private def multiple_check_box_fields
