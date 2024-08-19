@@ -1,14 +1,13 @@
 require "labelled_form/version"
-require "action_view"
 
 module LabelledForm
   class Rails < ::Rails::Engine
-    initializer "labelled_form.installation" do
-      ActionView::Base.default_form_builder = Builder
+    config.after_initialize do
+      ActionView::Base.default_form_builder.include FormBuilder
     end
-  end if defined?(Rails)
+  end
 
-  class Builder < ActionView::Helpers::FormBuilder
+  module FormBuilder
     def with_label method, options
       wrap_in_dfn = options.delete(:wrap_in_dfn)
       label_class = options.delete(:label_class)
