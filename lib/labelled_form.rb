@@ -63,6 +63,12 @@ module LabelledForm
     end
   end
 
+  def password_field method, options = {}
+    with_label(method, options) do
+      super
+    end
+  end
+
   def text_field method, options = {}
     with_label(method, options) do
       super
@@ -90,6 +96,12 @@ module LabelledForm
   end
 
   def number_field method, options = {}
+    with_label(method, options) do
+      super
+    end
+  end
+
+  def range_field method, options = {}
     with_label(method, options) do
       super
     end
