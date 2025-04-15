@@ -14,8 +14,8 @@ module LabelledForm
     label_text = options.delete(:label) || label_class.present? || label_with_colon
 
     label_text = method.to_s.humanize if label_text === true
-    label_text&.sub!(/_id$/,"")
-    label_text << ":" if label_with_colon && !label_text.ends_with?(":")
+    label_text = label_text&.sub(/_id$/,"")
+    label_text += ":" if label_with_colon && !label_text.ends_with?(":")
 
     field_html = yield
 
